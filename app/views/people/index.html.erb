@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>People</h1>
+
+<div id="people-list">
+  <% @people.each do |person| %>
+    <%= render 'people_list' %>
+    <p>
+      <%= link_to "Show this person", person %>
+      <%=link_to 'Destroy', person, method: :remove, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, :remote => true, :class => 'delete_person'%>
+    </p>
+  <% end %>
+</div>
+<a href="#" id="fetch_people">Fetch People</a>
+<div id="people_list"></div>
+
+<%= link_to "New person", new_person_path %>
