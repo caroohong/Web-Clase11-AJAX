@@ -5,9 +5,9 @@ class PeopleController < ApplicationController
   def index
     @people = Person.all
     respond_to do |format|
-      format.js 
+      format.js {render layout: false}
       format.html
-      format.json
+      format.json {render json: @people}
     end
   end
 
